@@ -24,15 +24,16 @@ $(document).ready(function(){
 
 	$('button').click(function(){
 		// console.log('user clicked on a button')
-		var userAnswer = $(this).html();
+		// var userAnswer = $(this).html();
+		var gridSize = $(this).attr("diff");
 		// console.log(userAnswer);
-		if(userAnswer === "Easy"){
-			gridSize = 4;
-		}else if(userAnswer === "Medium"){
-			gridSize = 12;
-		}else if(userAnswer == "Hard"){
-			gridSize = 28;
-		}
+		// if(userAnswer === "Easy"){
+		// 	gridSize = 4;
+		// }else if(userAnswer === "Medium"){
+		// 	gridSize = 12;
+		// }else if(userAnswer == "Hard"){
+		// 	gridSize = 28;
+		// }
 
 		cards.map((card, index)=>{
 			cardsToUse.push(card,card);
@@ -81,8 +82,10 @@ $(document).ready(function(){
 					// })
 				}else{
 					// these are not a match, because the HTML is dif
+					cardsUp.removeClass('flip');
+					cardsUp.addClass('temp-flip')
 					setTimeout(()=>{
-						cardsUp.removeClass('flip');	
+						cardsUp.removeClass('temp-flip');
 					},2000);
 					console.log(new Date().getTime())
 				}

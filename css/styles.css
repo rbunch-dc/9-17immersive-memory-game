@@ -42,10 +42,10 @@ img{
 	width: 100%;
 }
 
-.flip{
+.flip, .temp-flip{
 	transform: rotateY(-180deg);
 }
 
 .matched{
-	transform: rotateY(520deg);
+	transform: rotateY(880deg) scale(2) translate(300px);
 }

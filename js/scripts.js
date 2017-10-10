@@ -51,6 +51,46 @@ $(document).ready(function(){
 		console.log(typeof(memoryHTML))
 		$('.mg-stuff').html(memoryHTML);
 
+		// Add a click listener to all card-holders
+		$('.card-holder').click(function(){
+			// $(this) will target teh card-holder that was clicked
+			$(this).addClass('flip');
+			console.log(new Date().getTime())
+			// A card just flipped over. 
+			// Is there another one turned over already?
+			// - if not, do nothing.
+			// - if so, check and see if they match.
+
+			// Go get all elements with a class of flip.
+			var cardsUp = $('.flip');
+			if(cardsUp.length === 2){
+				// two cards up. Check. The only way the length can be 2
+				// is if two elements ahve a class of flip
+				var card1 = cardsUp[0];
+				var card2 = cardsUp[1];
+				// console.dir(card1);
+				if(card1.innerHTML === card2.innerHTML){
+					// these are a match. THe html is exactly the same.
+					cardsUp.addClass('matched');
+					cardsUp.removeClass('flip');
+					// cardsUp.each(function(){
+					// 	$(this).addClass('matched');
+					// });
+					// cardsUp.map((card)=>{
+					// 	$(card).addClass()...
+					// })
+				}else{
+					// these are not a match, because the HTML is dif
+					setTimeout(()=>{
+						cardsUp.removeClass('flip');	
+					},2000);
+					console.log(new Date().getTime())
+				}
+			}else{
+				// one card up. Do nothing.
+			}
+
+		});
 
 	});
 

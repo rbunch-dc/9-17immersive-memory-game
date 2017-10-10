@@ -45,3 +45,7 @@ img{
 .flip{
 	transform: rotateY(-180deg);
 }
+
+.matched{
+	transform: rotateY(520deg);
+}
